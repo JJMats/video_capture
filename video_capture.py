@@ -11,16 +11,8 @@ def check_for_existing_file(fn):
 
 # Parse arguments
 parser = argparse.ArgumentParser(description='Process flags')
-parser.add_argument('-o',
-                    dest='outfile', 
-                    type=str,
-                    default='out',
-                    help='Output filename')
-parser.add_argument('r',
-                    dest='rate',
-                    type=str,
-                    default=5,
-                    help='Frame record rate - frames per second')
+parser.add_argument('-o', dest='outfile', type=str, default='out', help='Output filename')
+parser.add_argument('r', dest='rate', type=str, default=5, help='Frame record rate - frames per second')
 args = parser.parse_args()
 
 
@@ -36,10 +28,12 @@ output_fn += '.avi'
 
 cap = cv2.VideoCapture(0)
 
+
 # Define the codec and create the VideoWriter object
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter(output_fn, fourcc, 20.0, (1280, 720))
 
+# Record the video from the camera
 while(cap.isOpened()):
     # Capture frame-by-frame
     ret, frame = cap.read()
