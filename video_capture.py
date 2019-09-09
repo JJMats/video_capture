@@ -10,9 +10,9 @@ def check_for_existing_file(fn):
 
 
 # Parse arguments
-parser = argparse.ArgumentParser(description='Process flags')
-parser.add_argument('-o', dest='outfile', type=str, default='out', help='Output filename')
-parser.add_argument('r', dest='rate', type=str, default=5, help='Frame record rate - frames per second')
+parser = argparse.ArgumentParser(description="Process flags")
+parser.add_argument('-o', dest='outfile', type=str, default='out', help="Output filename")
+parser.add_argument('r', dest='rate', type=str, default=5, help="Frame record rate - frames per second")
 args = parser.parse_args()
 
 
@@ -24,7 +24,7 @@ while(check_for_existing_file(output_fn)):
     output_fn = output_fn + str(video_index)
 
 # Add file extension
-output_fn += '.avi'
+output_fn += '.mp4'
 
 cap = cv2.VideoCapture(0)
 
